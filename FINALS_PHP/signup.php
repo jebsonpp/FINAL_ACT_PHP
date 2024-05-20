@@ -12,11 +12,12 @@ session_start();
 		$password = $_POST['password'];
 
 		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
-		{
+		{	// hash the password to the database
+			$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 			//save to database
 			$user_id = random_num(10);
-			$query = "insert into users (user_id,user_name,password) values ('$user_id','$user_name','$password')";
+			$query = "INSERT INTO users (user_id,user_name,password) VALUES ('$user_id','$user_name','$hashed_password')";
 
 			mysqli_query($con, $query);
 

@@ -16,7 +16,7 @@ session_start();
 		{
 
 			//read from database
-			$query = "select * from users where user_name = '$user_name' limit 1";
+			$query = "SELECT* FROM users WHERE user_name = '$user_name' LIMIT 1";
 			$result = mysqli_query($con, $query);
 
 			if($result)
@@ -53,7 +53,7 @@ session_start();
 </head>
 <body>
 
-	<style type="text/css">
+<style type="text/css">
 	
 	#text {
     height: 30px;
